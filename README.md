@@ -5,35 +5,35 @@ This file is a markdown document which has some basic technical questions to ass
 
 **Why LeafLink**
 
-#### What interests you about LeafLink from an industry standpoint and our proposed tech offerings?
+## What interests you about LeafLink from an industry standpoint and our proposed tech offerings?
 
 >Do not know about LeafLink, I didn't use this type of technology
 
 **Linux**
 
-#### How do I reconnect to an existing screen or tmux session named 'leaflink'?
+## How do I reconnect to an existing screen or tmux session named 'leaflink'?
 
 > tmux attach -t leaflink
 
-#### How would I "follow" the output of a server log named 'access.log'?
+## How would I "follow" the output of a server log named 'access.log'?
 
 ```tail -f access.log```
 
-#### How would I remove all files in a directory that start with an 'a' and have a '.jpg' extension?
+## How would I remove all files in a directory that start with an 'a' and have a '.jpg' extension?
 
 ```rm -rf a*.jpg```
 
-#### How would I see all running processes and memory they consume?
+## How would I see all running processes and memory they consume?
 
 ```ps aux or top ```
 
-#### How would I combine the following files: '1.log', '2.log', '3.log' into a single file named 'master.log'?
+## How would I combine the following files: '1.log', '2.log', '3.log' into a single file named 'master.log'?
 
 ```cat 1.log 2.log 3.log >master.log```
 
 **Database**
 
-#### What is a database index and when is it wise to build an index?
+## What is a database index and when is it wise to build an index?
 
 > database index is a B- tree that stores the values for a specific column in a table
 
@@ -49,32 +49,32 @@ Table Name: 'pets'
 | tony  |      fish     |  1  |
 
 
-#### Write a query to return all unique pets in the 'pets' table.
+## Write a query to return all unique pets in the 'pets' table.
 
 > select distinct pet from pets
 
-#### Write a query to return the oldest cat owner in the 'pets' table.
+## Write a query to return the oldest cat owner in the 'pets' table.
 
 > select * from pets where pet='cat' order by age LIMIT 1
 
-#### Write a query to return the average age of all cats and dogs in the 'pets' table.
+## Write a query to return the average age of all cats and dogs in the 'pets' table.
 
 > SELECT AVG(age) as avgAge FROM pets GROUP BY pet HAVING pet IN ('cat','dog');
 
 **Python**
-#### What is your favorite python module and why?
+## What is your favorite python module and why?
 
 > numpy, pandas and pyspark 
 
 
-#### Write python code to return an iterable which contains all unique numbers in the list [1, 3, 4, 5, 2, 2, 1, 4].
+## Write python code to return an iterable which contains all unique numbers in the list [1, 3, 4, 5, 2, 2, 1, 4].
 
 ```
 li = [1, 3, 4, 5, 2, 2, 1, 4]
 result = set(li)
 ```
 
-#### Write python code to find the largest number in [1, 3, 4, 5, 2, 2, 1, 4].
+## Write python code to find the largest number in [1, 3, 4, 5, 2, 2, 1, 4].
 
 ```
 li = [1, 3, 4, 5, 2, 2, 1, 4]
@@ -83,18 +83,18 @@ result = max(li)
 ```
 
 
-#### Write python code to return common elements between l = [1, 'A', 3, 5] and p = [8, 3, 5, 'A'].
+## Write python code to return common elements between l = [1, 'A', 3, 5] and p = [8, 3, 5, 'A'].
 
 > result = list(set(l) & set(p)) 
 
-#### Write python code to sort the following from highest to lowest [1, 3, 4, 5, 2, 2, 1, 4].
+## Write python code to sort the following from highest to lowest [1, 3, 4, 5, 2, 2, 1, 4].
 
 >result = li.sort(reverse=True)
 
 
 **Django**
 
-#### Write a formal Django model for a typical 'Blog' entry.
+## Write a formal Django model for a typical 'Blog' entry.
 
 ```
 class BlogCategory(models.Model):
@@ -137,14 +137,14 @@ class Blog(models.Model):
 
 ```
 
-#### Using the Django ORM how would you find all owners in the 'pets' table above who have a cat older than 1? Assume the Model name is "Pet".
+## Using the Django ORM how would you find all owners in the 'pets' table above who have a cat older than 1? Assume the Model name is "Pet".
 
 ```
 pets = Pet.objects.filter(pet='cat', age__lt=1)
 
 ```
 
-#### Render your query set above using Django template syntax as an HTML Table.
+## Render your query set above using Django template syntax as an HTML Table.
 
 ```
 <table>
@@ -162,14 +162,14 @@ pets = Pet.objects.filter(pet='cat', age__lt=1)
 
 **API**
 
-#### Write python code to print all pet owner names for the following 'JSON web service'.
+## Write python code to print all pet owner names for the following 'JSON web service'.
 <http://dpaste.com/1V5NTFH.txt>
 
 `[solution]`
 
 **Javascript**
 
-#### What is the DOM?
+## What is the DOM?
 
 >DOM stands for Document Object Model and is a mechanism for representing and interacting with HTML.
 
