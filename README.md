@@ -17,7 +17,7 @@ How do I reconnect to an existing screen or tmux session named 'leaflink'?
 
 How would I "follow" the output of a server log named 'access.log'?
 
-`[solution]`
+`tail -f access.log`
 
 How would I remove all files in a directory that start with an 'a' and have a '.jpg' extension?
 
