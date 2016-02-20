@@ -7,13 +7,13 @@ This file is a markdown document which has some basic technical questions to ass
 
 What interests you about LeafLink from an industry standpoint and our proposed tech offerings?
 
-`[response]`
+>Do not know about LeafLink, I didn't use this type of technology
 
 **Linux**
 
 How do I reconnect to an existing screen or tmux session named 'leaflink'?
 
-`[solution]`
+> tmux attach -t leaflink
 
 How would I "follow" the output of a server log named 'access.log'?
 
@@ -59,13 +59,12 @@ Write a query to return the oldest cat owner in the 'pets' table.
 
 Write a query to return the average age of all cats and dogs in the 'pets' table.
 
-`[solution]`
+> SELECT AVG(age) as avgAge FROM pets GROUP BY pet HAVING pet IN ('cat','dog');
 
 **Python**
 
 > numpy, pandas and pyspark 
 
-`[solution]`
 
 Write python code to return an iterable which contains all unique numbers in the list [1, 3, 4, 5, 2, 2, 1, 4].
 
@@ -139,11 +138,25 @@ class Blog(models.Model):
 
 Using the Django ORM how would you find all owners in the 'pets' table above who have a cat older than 1? Assume the Model name is "Pet".
 
-`[solution]`
+```
+pets = Pet.objects.filter(pet='cat', age__lt=1)
+
+```
 
 Render your query set above using Django template syntax as an HTML Table.
 
-`[solution]`
+```
+<table>
+{% for pet in pets %}
+	<tr>
+		<td>{{pet.owner}}</td>
+		<td>{{pet.pet}}</td>
+		<td>{{pet.age}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+```
 
 
 **API**
@@ -157,7 +170,8 @@ Write python code to print all pet owner names for the following 'JSON web servi
 
 What is the DOM?
 
-`[solution]`
+DOM stands for Document Object Model and is a mechanism for representing and interacting with HTML.
+
 
 Write a jQuery selector to select all list items that have 'cat' as a class.
 
@@ -170,5 +184,5 @@ Write a jQuery selector to select all list items that have 'cat' as a class.
 </ul>
 ```
 
+> $('ul li.cat')
 
-`solution`
