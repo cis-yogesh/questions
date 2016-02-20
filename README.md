@@ -35,8 +35,9 @@ How would I combine the following files: '1.log', '2.log', '3.log' into a single
 
 What is a database index and when is it wise to build an index?
 
-`database index is a B- tree that stores the values for a specific column in a table`
-``` CREATE INDEX name_index ON Table (value) ```
+> database index is a B- tree that stores the values for a specific column in a table
+
+```CREATE INDEX name_index ON Table (value)```
 
 Table Name: 'pets'
 
@@ -50,11 +51,11 @@ Table Name: 'pets'
 
 Write a query to return all unique pets in the 'pets' table.
 
-`[solution]`
+> select distinct pet from pets
 
 Write a query to return the oldest cat owner in the 'pets' table.
 
-`[solution]`
+> select * from pets where pet='cat' order by age LIMIT 1
 
 Write a query to return the average age of all cats and dogs in the 'pets' table.
 
@@ -62,32 +63,79 @@ Write a query to return the average age of all cats and dogs in the 'pets' table
 
 **Python**
 
-What is your favorite python module and why?
+> numpy, pandas and pyspark 
 
 `[solution]`
 
 Write python code to return an iterable which contains all unique numbers in the list [1, 3, 4, 5, 2, 2, 1, 4].
 
-`[solution]`
+```
+li = [1, 3, 4, 5, 2, 2, 1, 4]
+result = set(li)
+```
 
 Write python code to find the largest number in [1, 3, 4, 5, 2, 2, 1, 4].
 
-`[solution]`
+```
+li = [1, 3, 4, 5, 2, 2, 1, 4]
+result = max(li)
+
+```
+
 
 Write python code to return common elements between l = [1, 'A', 3, 5] and p = [8, 3, 5, 'A'].
 
-`[solution]`
+> result = list(set(l) & set(p)) 
 
 Write python code to sort the following from highest to lowest [1, 3, 4, 5, 2, 2, 1, 4].
 
-`[solution]`
+>result = li.sort(reverse=True)
 
 
 **Django**
 
 Write a formal Django model for a typical 'Blog' entry.
 
-`[solution]`
+```
+class BlogCategory(models.Model):
+    """
+    Blog category
+    """
+    parent = models.ForeignKey('self', verbose_name=_('parent'), null=True, blank=True)
+    date_created = models.DateTimeField(_('created at'), auto_now_add=True)
+    date_modified = models.DateTimeField(_('modified at'), auto_now=True)
+
+class Blog(models.Model):
+    """
+    Blog post
+    """
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='blogs')
+
+	title=models.CharField(_('title'), max_length=255),
+	slug=models.SlugField(_('slug'), blank=True, db_index=True),
+	abstract=HTMLField(_('abstract'), blank=True, default=''),
+	meta_description=models.TextField(verbose_name=_('post meta description'),
+			                      blank=True, default=''),
+	meta_keywords=models.TextField(verbose_name=_('post meta keywords'),
+			                   blank=True, default=''),
+	meta_title=models.CharField(verbose_name=_('post meta title'),
+			                help_text=_('used in title tag and social sharing'),
+			                max_length=255,
+			                blank=True, default=''),
+	post_text=HTMLField(_('text'), default='', blank=True),
+
+    date_created = models.DateTimeField(_('created'), auto_now_add=True)
+    date_modified = models.DateTimeField(_('last modified'), auto_now=True)
+    date_published = models.DateTimeField(_('published since'),
+                                          default=timezone.now)
+    date_published_end = models.DateTimeField(_('published until'), null=True,
+                                              blank=True)
+    publish = models.BooleanField(_('publish'), default=False)
+    categories = models.ManyToManyField('djangocms_blog.BlogCategory', verbose_name=_('category'),
+    enable_comments = models.BooleanField(verbose_name=_('enable comments on post'),
+                                          default=get_setting('ENABLE_COMMENTS'))
+
+```
 
 Using the Django ORM how would you find all owners in the 'pets' table above who have a cat older than 1? Assume the Model name is "Pet".
 
