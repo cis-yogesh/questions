@@ -165,7 +165,14 @@ pets = Pet.objects.filter(pet='cat', age__lt=1)
 ##### Write python code to print all pet owner names for the following 'JSON web service'.
 <http://dpaste.com/1V5NTFH.txt>
 
-`[solution]`
+```
+import requests
+
+data = requests.get('http://dpaste.com/1V5NTFH.txt')
+for pet in data.json():
+    print(pet['owner'])
+
+```
 
 **Javascript**
 
