@@ -17,25 +17,26 @@ How do I reconnect to an existing screen or tmux session named 'leaflink'?
 
 How would I "follow" the output of a server log named 'access.log'?
 
-`tail -f access.log`
+```tail -f access.log```
 
 How would I remove all files in a directory that start with an 'a' and have a '.jpg' extension?
 
-`[solution]`
+```rm -rf a*.jpg```
 
 How would I see all running processes and memory they consume?
 
-`[solution]`
+```ps aux or top ```
 
 How would I combine the following files: '1.log', '2.log', '3.log' into a single file named 'master.log'?
 
-`[solution]`
+```cat 1.log 2.log 3.log >master.log```
 
 **Database**
 
 What is a database index and when is it wise to build an index?
 
-`[solution]`
+`database index is a B- tree that stores the values for a specific column in a table`
+``` CREATE INDEX name_index ON Table (value) ```
 
 Table Name: 'pets'
 
@@ -123,4 +124,3 @@ Write a jQuery selector to select all list items that have 'cat' as a class.
 
 
 `solution`
-
